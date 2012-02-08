@@ -1,9 +1,6 @@
 
 #NRGridView
 
-
-##Requirements
-
 iOS 4.0 minimum.
 
 ##License
