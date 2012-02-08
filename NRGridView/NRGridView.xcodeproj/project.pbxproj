@@ -1,0 +1,330 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXAggregateTarget section */
+		17BF816014E1B48700F109BE /* NRGridView Universal */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 17BF816114E1B48700F109BE /* Build configuration list for PBXAggregateTarget "NRGridView Universal" */;
+			buildPhases = (
+				17FA0A4414E1B5A000575FE6 /* ShellScript */,
+			);
+			dependencies = (
+			);
+			name = "NRGridView Universal";
+			productName = "NRGridView Universal";
+		};
+/* End PBXAggregateTarget section */
+
+/* Begin PBXBuildFile section */
+		17BF813814E1B3FB00F109BE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17BF813714E1B3FB00F109BE /* Foundation.framework */; };
+		17BF815314E1B43B00F109BE /* NRGridConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = 17BF814B14E1B43B00F109BE /* NRGridConstants.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		17BF815414E1B43B00F109BE /* NRGridView-Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = 17BF814C14E1B43B00F109BE /* NRGridView-Prefix.pch */; };
+		17BF815514E1B43B00F109BE /* NRGridView.h in Headers */ = {isa = PBXBuildFile; fileRef = 17BF814D14E1B43B00F109BE /* NRGridView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		17BF815614E1B43B00F109BE /* NRGridView.m in Sources */ = {isa = PBXBuildFile; fileRef = 17BF814E14E1B43B00F109BE /* NRGridView.m */; };
+		17BF815714E1B43B00F109BE /* NRGridViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 17BF814F14E1B43B00F109BE /* NRGridViewCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		17BF815814E1B43B00F109BE /* NRGridViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 17BF815014E1B43B00F109BE /* NRGridViewCell.m */; };
+		17BF815914E1B43B00F109BE /* NRGridViewDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 17BF815114E1B43B00F109BE /* NRGridViewDataSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		17BF815A14E1B43B00F109BE /* NRGridViewDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 17BF815214E1B43B00F109BE /* NRGridViewDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		17BF815E14E1B44800F109BE /* NRGridViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 17BF815C14E1B44800F109BE /* NRGridViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		17BF815F14E1B44800F109BE /* NRGridViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17BF815D14E1B44800F109BE /* NRGridViewController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		17BF813414E1B3FB00F109BE /* libNRGridView.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libNRGridView.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		17BF813714E1B3FB00F109BE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		17BF814B14E1B43B00F109BE /* NRGridConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NRGridConstants.h; sourceTree = "<group>"; };
+		17BF814C14E1B43B00F109BE /* NRGridView-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NRGridView-Prefix.pch"; sourceTree = "<group>"; };
+		17BF814D14E1B43B00F109BE /* NRGridView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NRGridView.h; sourceTree = "<group>"; };
+		17BF814E14E1B43B00F109BE /* NRGridView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NRGridView.m; sourceTree = "<group>"; };
+		17BF814F14E1B43B00F109BE /* NRGridViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NRGridViewCell.h; sourceTree = "<group>"; };
+		17BF815014E1B43B00F109BE /* NRGridViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NRGridViewCell.m; sourceTree = "<group>"; };
+		17BF815114E1B43B00F109BE /* NRGridViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NRGridViewDataSource.h; sourceTree = "<group>"; };
+		17BF815214E1B43B00F109BE /* NRGridViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NRGridViewDelegate.h; sourceTree = "<group>"; };
+		17BF815C14E1B44800F109BE /* NRGridViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NRGridViewController.h; sourceTree = "<group>"; };
+		17BF815D14E1B44800F109BE /* NRGridViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NRGridViewController.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		17BF813114E1B3FB00F109BE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				17BF813814E1B3FB00F109BE /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		17BF812914E1B3FA00F109BE = {
+			isa = PBXGroup;
+			children = (
+				17BF815B14E1B44800F109BE /* NRGridViewController */,
+				17BF814A14E1B43B00F109BE /* NRGridView */,
+				17BF813614E1B3FB00F109BE /* Frameworks */,
+				17BF813514E1B3FB00F109BE /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		17BF813514E1B3FB00F109BE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				17BF813414E1B3FB00F109BE /* libNRGridView.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		17BF813614E1B3FB00F109BE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				17BF813714E1B3FB00F109BE /* Foundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		17BF814A14E1B43B00F109BE /* NRGridView */ = {
+			isa = PBXGroup;
+			children = (
+				17BF814D14E1B43B00F109BE /* NRGridView.h */,
+				17BF814E14E1B43B00F109BE /* NRGridView.m */,
+				17BF814F14E1B43B00F109BE /* NRGridViewCell.h */,
+				17BF815014E1B43B00F109BE /* NRGridViewCell.m */,
+				17BF815114E1B43B00F109BE /* NRGridViewDataSource.h */,
+				17BF815214E1B43B00F109BE /* NRGridViewDelegate.h */,
+				17BF814B14E1B43B00F109BE /* NRGridConstants.h */,
+				17BF814C14E1B43B00F109BE /* NRGridView-Prefix.pch */,
+			);
+			path = NRGridView;
+			sourceTree = "<group>";
+		};
+		17BF815B14E1B44800F109BE /* NRGridViewController */ = {
+			isa = PBXGroup;
+			children = (
+				17BF815C14E1B44800F109BE /* NRGridViewController.h */,
+				17BF815D14E1B44800F109BE /* NRGridViewController.m */,
+			);
+			path = NRGridViewController;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		17BF813214E1B3FB00F109BE /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				17BF815514E1B43B00F109BE /* NRGridView.h in Headers */,
+				17BF815714E1B43B00F109BE /* NRGridViewCell.h in Headers */,
+				17BF815914E1B43B00F109BE /* NRGridViewDataSource.h in Headers */,
+				17BF815A14E1B43B00F109BE /* NRGridViewDelegate.h in Headers */,
+				17BF815E14E1B44800F109BE /* NRGridViewController.h in Headers */,
+				17BF815314E1B43B00F109BE /* NRGridConstants.h in Headers */,
+				17BF815414E1B43B00F109BE /* NRGridView-Prefix.pch in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		17BF813314E1B3FB00F109BE /* NRGridView */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 17BF814114E1B3FB00F109BE /* Build configuration list for PBXNativeTarget "NRGridView" */;
+			buildPhases = (
+				17BF813014E1B3FB00F109BE /* Sources */,
+				17BF813114E1B3FB00F109BE /* Frameworks */,
+				17BF813214E1B3FB00F109BE /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = NRGridView;
+			productName = NRGridView;
+			productReference = 17BF813414E1B3FB00F109BE /* libNRGridView.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		17BF812B14E1B3FA00F109BE /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+				ORGANIZATIONNAME = PixiApps;
+			};
+			buildConfigurationList = 17BF812E14E1B3FA00F109BE /* Build configuration list for PBXProject "NRGridView" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 17BF812914E1B3FA00F109BE;
+			productRefGroup = 17BF813514E1B3FB00F109BE /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				17BF813314E1B3FB00F109BE /* NRGridView */,
+				17BF816014E1B48700F109BE /* NRGridView Universal */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		17FA0A4414E1B5A000575FE6 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "LIB_NAME=NRGridView\nBUILD_DIR=build\n\n# Create paths\nINSTALL_DIR=${BUILD_DIR}/${LIB_NAME}\nDEVICE_DIR=${BUILD_DIR}/iphoneos-iphoneos\nSIMULATOR_DIR=${BUILD_DIR}/iphonesimulator-iphonesimulator\n\n\n# Build our project using iphoneos and iphonesimulator build configurations\nxcodebuild -configuration \"iphoneos\" -target \"${LIB_NAME}\" -sdk iphoneos\nxcodebuild -configuration \"iphonesimulator\" -target \"${LIB_NAME}\" -sdk iphonesimulator\n\n# Clean the old install directory.\nif [ -d \"${INSTALL_DIR}\" ]\nthen\nrm -rf \"${INSTALL_DIR}\"\nfi\n\n# Create the install directory\nmkdir -p \"${INSTALL_DIR}\"\n\n# Copy the iphoneos headers into the install directory\ncp -R \"${DEVICE_DIR}/usr\" \"${INSTALL_DIR}\"\n\n# Use lipo tool to create 1 universal library\nlipo -create \"${DEVICE_DIR}/lib${LIB_NAME}.a\" \"${SIMULATOR_DIR}/lib${LIB_NAME}.a\" -output \"${INSTALL_DIR}/lib${LIB_NAME}.a\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		17BF813014E1B3FB00F109BE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				17BF815614E1B43B00F109BE /* NRGridView.m in Sources */,
+				17BF815814E1B43B00F109BE /* NRGridViewCell.m in Sources */,
+				17BF815F14E1B44800F109BE /* NRGridViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		17BF813F14E1B3FB00F109BE /* iphonesimulator */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = i386;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = iphonesimulator;
+				VALID_ARCHS = i386;
+			};
+			name = iphonesimulator;
+		};
+		17BF814014E1B3FB00F109BE /* iphoneos */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = iphoneos;
+		};
+		17BF814214E1B3FB00F109BE /* iphonesimulator */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = i386;
+				DSTROOT = /tmp/NRGridView.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "NRGridView/NRGridView-Prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				VALID_ARCHS = i386;
+			};
+			name = iphonesimulator;
+		};
+		17BF814314E1B3FB00F109BE /* iphoneos */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/NRGridView.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "NRGridView/NRGridView-Prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = iphoneos;
+		};
+		17BF816214E1B48700F109BE /* iphonesimulator */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = i386;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = iphonesimulator;
+		};
+		17BF816314E1B48700F109BE /* iphoneos */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = iphoneos;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		17BF812E14E1B3FA00F109BE /* Build configuration list for PBXProject "NRGridView" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				17BF813F14E1B3FB00F109BE /* iphonesimulator */,
+				17BF814014E1B3FB00F109BE /* iphoneos */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = iphoneos;
+		};
+		17BF814114E1B3FB00F109BE /* Build configuration list for PBXNativeTarget "NRGridView" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				17BF814214E1B3FB00F109BE /* iphonesimulator */,
+				17BF814314E1B3FB00F109BE /* iphoneos */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = iphoneos;
+		};
+		17BF816114E1B48700F109BE /* Build configuration list for PBXAggregateTarget "NRGridView Universal" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				17BF816214E1B48700F109BE /* iphonesimulator */,
+				17BF816314E1B48700F109BE /* iphoneos */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = iphoneos;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 17BF812B14E1B3FA00F109BE /* Project object */;
+}

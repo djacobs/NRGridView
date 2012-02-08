@@ -1,0 +1,428 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		175E1C9C14DD6C7C00DE9D4D /* MyGridViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 175E1C9B14DD6C7C00DE9D4D /* MyGridViewController.m */; };
+		178B9C6914DF4D560086A469 /* 0.png in Resources */ = {isa = PBXBuildFile; fileRef = 178B9C6214DF4D560086A469 /* 0.png */; };
+		178B9C6A14DF4D560086A469 /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = 178B9C6314DF4D560086A469 /* 1.png */; };
+		178B9C6B14DF4D560086A469 /* 2.png in Resources */ = {isa = PBXBuildFile; fileRef = 178B9C6414DF4D560086A469 /* 2.png */; };
+		178B9C6C14DF4D560086A469 /* 3.png in Resources */ = {isa = PBXBuildFile; fileRef = 178B9C6514DF4D560086A469 /* 3.png */; };
+		178B9C6D14DF4D560086A469 /* 4.png in Resources */ = {isa = PBXBuildFile; fileRef = 178B9C6614DF4D560086A469 /* 4.png */; };
+		178B9C6E14DF4D560086A469 /* 5.png in Resources */ = {isa = PBXBuildFile; fileRef = 178B9C6714DF4D560086A469 /* 5.png */; };
+		178B9C6F14DF4D560086A469 /* 6.png in Resources */ = {isa = PBXBuildFile; fileRef = 178B9C6814DF4D560086A469 /* 6.png */; };
+		17A4339B14DC5395008D35D8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17A4339A14DC5395008D35D8 /* UIKit.framework */; };
+		17A4339D14DC5395008D35D8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17A4339C14DC5395008D35D8 /* Foundation.framework */; };
+		17A4339F14DC5395008D35D8 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17A4339E14DC5395008D35D8 /* CoreGraphics.framework */; };
+		17A433A514DC5395008D35D8 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 17A433A314DC5395008D35D8 /* InfoPlist.strings */; };
+		17A433A714DC5395008D35D8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 17A433A614DC5395008D35D8 /* main.m */; };
+		17A433AB14DC5395008D35D8 /* NRAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 17A433AA14DC5395008D35D8 /* NRAppDelegate.m */; };
+		17FA0A7114E1C8A000575FE6 /* libNRGridView.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 17FA0A6714E1C8A000575FE6 /* libNRGridView.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		17FA0A4014E1B4F200575FE6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 17FA0A3814E1B4F200575FE6 /* NRGridView.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 17BF813414E1B3FB00F109BE;
+			remoteInfo = NRGridView;
+		};
+		17FA0A7514E1CF8800575FE6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 17FA0A3814E1B4F200575FE6 /* NRGridView.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 17BF816014E1B48700F109BE;
+			remoteInfo = "NRGridView Universal";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		175E1C9A14DD6C7C00DE9D4D /* MyGridViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyGridViewController.h; sourceTree = "<group>"; };
+		175E1C9B14DD6C7C00DE9D4D /* MyGridViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyGridViewController.m; sourceTree = "<group>"; };
+		178B9C6214DF4D560086A469 /* 0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 0.png; sourceTree = "<group>"; };
+		178B9C6314DF4D560086A469 /* 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1.png; sourceTree = "<group>"; };
+		178B9C6414DF4D560086A469 /* 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2.png; sourceTree = "<group>"; };
+		178B9C6514DF4D560086A469 /* 3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 3.png; sourceTree = "<group>"; };
+		178B9C6614DF4D560086A469 /* 4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 4.png; sourceTree = "<group>"; };
+		178B9C6714DF4D560086A469 /* 5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 5.png; sourceTree = "<group>"; };
+		178B9C6814DF4D560086A469 /* 6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 6.png; sourceTree = "<group>"; };
+		17A4339614DC5395008D35D8 /* NRGridViewSampleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NRGridViewSampleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		17A4339A14DC5395008D35D8 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		17A4339C14DC5395008D35D8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		17A4339E14DC5395008D35D8 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		17A433A214DC5395008D35D8 /* NRGridViewSampleApp-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "NRGridViewSampleApp-Info.plist"; sourceTree = "<group>"; };
+		17A433A414DC5395008D35D8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		17A433A614DC5395008D35D8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		17A433A814DC5395008D35D8 /* NRGridViewSampleApp-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NRGridViewSampleApp-Prefix.pch"; sourceTree = "<group>"; };
+		17A433A914DC5395008D35D8 /* NRAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NRAppDelegate.h; sourceTree = "<group>"; };
+		17A433AA14DC5395008D35D8 /* NRAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NRAppDelegate.m; sourceTree = "<group>"; };
+		17FA0A3814E1B4F200575FE6 /* NRGridView.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = NRGridView.xcodeproj; path = ../NRGridView/NRGridView.xcodeproj; sourceTree = "<group>"; };
+		17FA0A6714E1C8A000575FE6 /* libNRGridView.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libNRGridView.a; sourceTree = "<group>"; };
+		17FA0A6B14E1C8A000575FE6 /* NRGridConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NRGridConstants.h; sourceTree = "<group>"; };
+		17FA0A6C14E1C8A000575FE6 /* NRGridView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NRGridView.h; sourceTree = "<group>"; };
+		17FA0A6D14E1C8A000575FE6 /* NRGridViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NRGridViewCell.h; sourceTree = "<group>"; };
+		17FA0A6E14E1C8A000575FE6 /* NRGridViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NRGridViewController.h; sourceTree = "<group>"; };
+		17FA0A6F14E1C8A000575FE6 /* NRGridViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NRGridViewDataSource.h; sourceTree = "<group>"; };
+		17FA0A7014E1C8A000575FE6 /* NRGridViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NRGridViewDelegate.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		17A4339314DC5395008D35D8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				17A4339B14DC5395008D35D8 /* UIKit.framework in Frameworks */,
+				17A4339D14DC5395008D35D8 /* Foundation.framework in Frameworks */,
+				17A4339F14DC5395008D35D8 /* CoreGraphics.framework in Frameworks */,
+				17FA0A7114E1C8A000575FE6 /* libNRGridView.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		17A4338B14DC5395008D35D8 = {
+			isa = PBXGroup;
+			children = (
+				17FA0A3814E1B4F200575FE6 /* NRGridView.xcodeproj */,
+				17A433A014DC5395008D35D8 /* NRGridViewSampleApp */,
+				17A4339914DC5395008D35D8 /* Frameworks */,
+				17A4339714DC5395008D35D8 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		17A4339714DC5395008D35D8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				17A4339614DC5395008D35D8 /* NRGridViewSampleApp.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		17A4339914DC5395008D35D8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				17A4339A14DC5395008D35D8 /* UIKit.framework */,
+				17A4339C14DC5395008D35D8 /* Foundation.framework */,
+				17A4339E14DC5395008D35D8 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		17A433A014DC5395008D35D8 /* NRGridViewSampleApp */ = {
+			isa = PBXGroup;
+			children = (
+				17A433A914DC5395008D35D8 /* NRAppDelegate.h */,
+				17A433AA14DC5395008D35D8 /* NRAppDelegate.m */,
+				175E1C9A14DD6C7C00DE9D4D /* MyGridViewController.h */,
+				175E1C9B14DD6C7C00DE9D4D /* MyGridViewController.m */,
+				17FA0A5914E1C76200575FE6 /* Lib */,
+				17A433A114DC5395008D35D8 /* Supporting Files */,
+			);
+			path = NRGridViewSampleApp;
+			sourceTree = "<group>";
+		};
+		17A433A114DC5395008D35D8 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				178B9C6214DF4D560086A469 /* 0.png */,
+				178B9C6314DF4D560086A469 /* 1.png */,
+				178B9C6414DF4D560086A469 /* 2.png */,
+				178B9C6514DF4D560086A469 /* 3.png */,
+				178B9C6614DF4D560086A469 /* 4.png */,
+				178B9C6714DF4D560086A469 /* 5.png */,
+				178B9C6814DF4D560086A469 /* 6.png */,
+				17A433A214DC5395008D35D8 /* NRGridViewSampleApp-Info.plist */,
+				17A433A314DC5395008D35D8 /* InfoPlist.strings */,
+				17A433A614DC5395008D35D8 /* main.m */,
+				17A433A814DC5395008D35D8 /* NRGridViewSampleApp-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		17FA0A3914E1B4F200575FE6 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				17FA0A4114E1B4F200575FE6 /* libNRGridView.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		17FA0A5914E1C76200575FE6 /* Lib */ = {
+			isa = PBXGroup;
+			children = (
+				17FA0A6614E1C8A000575FE6 /* NRGridView */,
+			);
+			name = Lib;
+			sourceTree = "<group>";
+		};
+		17FA0A6614E1C8A000575FE6 /* NRGridView */ = {
+			isa = PBXGroup;
+			children = (
+				17FA0A6714E1C8A000575FE6 /* libNRGridView.a */,
+				17FA0A6814E1C8A000575FE6 /* usr */,
+			);
+			name = NRGridView;
+			path = ../../NRGridView/build/NRGridView;
+			sourceTree = "<group>";
+		};
+		17FA0A6814E1C8A000575FE6 /* usr */ = {
+			isa = PBXGroup;
+			children = (
+				17FA0A6914E1C8A000575FE6 /* local */,
+			);
+			path = usr;
+			sourceTree = "<group>";
+		};
+		17FA0A6914E1C8A000575FE6 /* local */ = {
+			isa = PBXGroup;
+			children = (
+				17FA0A6A14E1C8A000575FE6 /* include */,
+			);
+			path = local;
+			sourceTree = "<group>";
+		};
+		17FA0A6A14E1C8A000575FE6 /* include */ = {
+			isa = PBXGroup;
+			children = (
+				17FA0A6B14E1C8A000575FE6 /* NRGridConstants.h */,
+				17FA0A6C14E1C8A000575FE6 /* NRGridView.h */,
+				17FA0A6D14E1C8A000575FE6 /* NRGridViewCell.h */,
+				17FA0A6E14E1C8A000575FE6 /* NRGridViewController.h */,
+				17FA0A6F14E1C8A000575FE6 /* NRGridViewDataSource.h */,
+				17FA0A7014E1C8A000575FE6 /* NRGridViewDelegate.h */,
+			);
+			path = include;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		17A4339514DC5395008D35D8 /* NRGridViewSampleApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 17A433AE14DC5395008D35D8 /* Build configuration list for PBXNativeTarget "NRGridViewSampleApp" */;
+			buildPhases = (
+				17A4339214DC5395008D35D8 /* Sources */,
+				17A4339314DC5395008D35D8 /* Frameworks */,
+				17A4339414DC5395008D35D8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				17FA0A7614E1CF8800575FE6 /* PBXTargetDependency */,
+			);
+			name = NRGridViewSampleApp;
+			productName = NRGridViewSampleApp;
+			productReference = 17A4339614DC5395008D35D8 /* NRGridViewSampleApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		17A4338D14DC5395008D35D8 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+				ORGANIZATIONNAME = "Novedia Regions";
+			};
+			buildConfigurationList = 17A4339014DC5395008D35D8 /* Build configuration list for PBXProject "NRGridViewSampleApp" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 17A4338B14DC5395008D35D8;
+			productRefGroup = 17A4339714DC5395008D35D8 /* Products */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 17FA0A3914E1B4F200575FE6 /* Products */;
+					ProjectRef = 17FA0A3814E1B4F200575FE6 /* NRGridView.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				17A4339514DC5395008D35D8 /* NRGridViewSampleApp */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		17FA0A4114E1B4F200575FE6 /* libNRGridView.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libNRGridView.a;
+			remoteRef = 17FA0A4014E1B4F200575FE6 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXResourcesBuildPhase section */
+		17A4339414DC5395008D35D8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				17A433A514DC5395008D35D8 /* InfoPlist.strings in Resources */,
+				178B9C6914DF4D560086A469 /* 0.png in Resources */,
+				178B9C6A14DF4D560086A469 /* 1.png in Resources */,
+				178B9C6B14DF4D560086A469 /* 2.png in Resources */,
+				178B9C6C14DF4D560086A469 /* 3.png in Resources */,
+				178B9C6D14DF4D560086A469 /* 4.png in Resources */,
+				178B9C6E14DF4D560086A469 /* 5.png in Resources */,
+				178B9C6F14DF4D560086A469 /* 6.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		17A4339214DC5395008D35D8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				17A433A714DC5395008D35D8 /* main.m in Sources */,
+				17A433AB14DC5395008D35D8 /* NRAppDelegate.m in Sources */,
+				175E1C9C14DD6C7C00DE9D4D /* MyGridViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		17FA0A7614E1CF8800575FE6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "NRGridView Universal";
+			targetProxy = 17FA0A7514E1CF8800575FE6 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		17A433A314DC5395008D35D8 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				17A433A414DC5395008D35D8 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		17A433AC14DC5395008D35D8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		17A433AD14DC5395008D35D8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		17A433AF14DC5395008D35D8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Louka Desroziers (YTBLE37L84)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../NRGridView/Products\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "NRGridViewSampleApp/NRGridViewSampleApp-Prefix.pch";
+				INFOPLIST_FILE = "NRGridViewSampleApp/NRGridViewSampleApp-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../NRGridView/build/libNRGridView\"",
+					"\"$(SRCROOT)/../NRGridView/build/NRGridView\"",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "CA03F44B-28C0-42A6-89B0-67D7AFB3F8CB";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		17A433B014DC5395008D35D8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../NRGridView/Products\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "NRGridViewSampleApp/NRGridViewSampleApp-Prefix.pch";
+				INFOPLIST_FILE = "NRGridViewSampleApp/NRGridViewSampleApp-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../NRGridView/build/libNRGridView\"",
+					"\"$(SRCROOT)/../NRGridView/build/NRGridView\"",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		17A4339014DC5395008D35D8 /* Build configuration list for PBXProject "NRGridViewSampleApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				17A433AC14DC5395008D35D8 /* Debug */,
+				17A433AD14DC5395008D35D8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		17A433AE14DC5395008D35D8 /* Build configuration list for PBXNativeTarget "NRGridViewSampleApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				17A433AF14DC5395008D35D8 /* Debug */,
+				17A433B014DC5395008D35D8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 17A4338D14DC5395008D35D8 /* Project object */;
+}
