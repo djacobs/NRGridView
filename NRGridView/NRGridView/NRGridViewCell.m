@@ -213,6 +213,7 @@
     if(_backgroundView != backgroundView)
     {
         [_backgroundView removeFromSuperview];
+        [_backgroundView release];
         _backgroundView = [backgroundView retain];
         
         if(backgroundView)
