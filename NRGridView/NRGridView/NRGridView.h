@@ -52,6 +52,17 @@ enum{
 };
 typedef NSInteger NRGridViewLayoutStyle;
 
+enum{
+    NRGridViewScrollPositionNone,   // Please refer to UITableViewScrollPositionNone's description.
+    NRGridViewScrollPositionAtTop,
+    NRGridViewScrollPositionAtLeft  = NRGridViewScrollPositionAtTop, // for horizontal layout convention
+    NRGridViewScrollPositionAtMiddle,
+    NRGridViewScrollPositionAtBottom,
+    NRGridViewScrollPositionAtRight = NRGridViewScrollPositionAtBottom // for horizontal layout convention
+};
+typedef NSInteger NRGridViewScrollPosition;
+
+
 static CGSize const kNRGridViewDefaultCellSize = {50, 70};
 
 @interface NRGridView : UIScrollView
@@ -60,7 +71,6 @@ static CGSize const kNRGridViewDefaultCellSize = {50, 70};
     NSMutableArray  *_sectionLayouts;
     NSMutableSet    *_reusableCellsSet;
     NSMutableSet    *_visibleCellsSet;
-    NSIndexPath     *_selectedIndexPath;
     NRGridViewCell  *_highlightedCell;
 }
 
@@ -75,15 +85,40 @@ static CGSize const kNRGridViewDefaultCellSize = {50, 70};
 
 @property (nonatomic, readonly) NSArray     *visibleCells;
 @property (nonatomic, readonly) NSArray     *indexPathsForVisibleCells;
-@property (nonatomic, readonly) NSIndexPath *indexPathForSelectedCell;
-
-- (NRGridViewCell*)dequeueReusableCellWithIdentifier:(NSString*)identifier;
-- (NRGridViewCell*)cellAtIndexPath:(NSIndexPath*)indexPath;
-
-- (CGRect)rectForHeaderInSection:(NSInteger)section;
-
-- (void)deselectedCellAtIndexPath:(NSIndexPath*)indexPath animated:(BOOL)animated;
 
 - (void)reloadData;
+
+- (NRGridViewCell*)dequeueReusableCellWithIdentifier:(NSString*)identifier;
+- (NRGridViewCell*)cellAtIndexPath:(NSIndexPath*)indexPath; // returns nil if cell is not visible.
+
+/** Handling (de)selection */
+@property (nonatomic, retain)   NSIndexPath *selectedCellIndexPath;
+
+- (void)selectCellAtIndexPath:(NSIndexPath*)indexPath 
+                     animated:(BOOL)animated;
+- (void)selectCellAtIndexPath:(NSIndexPath*)indexPath 
+                   autoScroll:(BOOL)autoScroll
+               scrollPosition:(NRGridViewScrollPosition)scrollPosition
+                     animated:(BOOL)animated;
+
+- (void)deselectCellAtIndexPath:(NSIndexPath*)indexPath 
+                       animated:(BOOL)animated;
+
+
+/** Getting rects, and scroll to specific section/indexPath */
+- (CGRect)rectForHeaderInSection:(NSInteger)section;
+- (CGRect)rectForSection:(NSInteger)section;
+- (CGRect)rectForItemAtIndexPath:(NSIndexPath*)indexPath;
+
+- (void)scrollRectToSection:(NSInteger)section 
+                   animated:(BOOL)animated
+             scrollPosition:(NRGridViewScrollPosition)scrollPosition;
+
+- (void)scrollRectToItemAtIndexPath:(NSIndexPath*)indexPath 
+                           animated:(BOOL)animated
+                     scrollPosition:(NRGridViewScrollPosition)scrollPosition;
+
+
+
 
 @end

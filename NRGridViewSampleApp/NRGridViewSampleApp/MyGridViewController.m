@@ -8,7 +8,52 @@
 
 #import "MyGridViewController.h"
 
+static CGFloat const _kNRGridViewSampleCrazyScrollEnabled = NO; // For the lulz.
 @implementation MyGridViewController
+
+#pragma mark - Crazy Scroll LULZ
+
+- (void)__beginGeneratingCrazyScrolls
+{
+    if(_kNRGridViewSampleCrazyScrollEnabled==NO)return;
+    
+    NSInteger randomSection = arc4random() % ([[[self gridView] dataSource] respondsToSelector:@selector(numberOfSectionsInGridView:)]
+                                              ? [[[self gridView] dataSource] numberOfSectionsInGridView:[self gridView]]
+                                              : 1);
+    NSInteger randomItemIndex = arc4random() % [[[self gridView] dataSource] gridView:[self gridView] 
+                                                               numberOfItemsInSection:randomSection];
+    
+    [[self gridView] selectCellAtIndexPath:[NSIndexPath indexPathForItemIndex:randomItemIndex inSection:randomSection] 
+                                autoScroll:YES 
+                            scrollPosition:NRGridViewScrollPositionAtMiddle
+                                  animated:YES];
+    
+    [self performSelector:@selector(__beginGeneratingCrazyScrolls) 
+               withObject:nil 
+               afterDelay:2.5 
+                  inModes:[NSArray arrayWithObject:NSRunLoopCommonModes]];
+}
+
+- (void)__endGeneratingCrazyScrolls
+{
+    [NSObject cancelPreviousPerformRequestsWithTarget:self 
+                                             selector:@selector(__beginGeneratingCrazyScrolls) 
+                                               object:nil];
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    [self __beginGeneratingCrazyScrolls];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [self __endGeneratingCrazyScrolls];
+}
+
+#pragma mark -
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -39,6 +84,7 @@
     // Return YES for supported orientations
     return YES;
 }
+
 
 #pragma mark - NRGridView Data Source
 

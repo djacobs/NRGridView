@@ -203,8 +203,8 @@ static CGFloat const _kNRGridViewDefaultHeaderWidth = 30.; // layout style = hor
 - (UIView*)__visibleHeaderForSection:(NSInteger)section; // returns a visible header that has already been created.
 - (UIView*)__headerForSection:(NSInteger)section; // returns a visible header that has already been created, or creates a new one if applicable.
 
-- (CGRect)__frameForCellAtIndexPath:(NSIndexPath*)indexPath 
-                   usingLayoutStyle:(NRGridViewLayoutStyle)layoutStyle;
+- (CGRect)__rectForCellAtIndexPath:(NSIndexPath*)indexPath 
+                  usingLayoutStyle:(NRGridViewLayoutStyle)layoutStyle;
 - (void)__throwCellsInReusableQueue:(NSSet*)cellsSet;
 - (void)__throwCellInReusableQueue:(NRGridViewCell*)cell;
 
@@ -224,8 +224,9 @@ static CGFloat const _kNRGridViewDefaultHeaderWidth = 30.; // layout style = hor
 @synthesize dataSource = _dataSource;
 @synthesize delegate;
 @synthesize cellSize = _cellSize;
+@synthesize selectedCellIndexPath = _selectedCellIndexPath;
 
-@dynamic visibleCells, indexPathsForVisibleCells, indexPathForSelectedCell;
+@dynamic visibleCells, indexPathsForVisibleCells;
 
 #pragma mark - Init
 
@@ -281,11 +282,6 @@ static CGFloat const _kNRGridViewDefaultHeaderWidth = 30.; // layout style = hor
     return [_visibleCellsSet allObjects];
 }
 
-- (NSIndexPath*)indexPathForSelectedCell
-{
-    return [[_selectedIndexPath retain] autorelease];
-}
-
 - (NSArray*)indexPathsForVisibleCells
 {
     return [[self visibleCells] valueForKeyPath:@"@unionOfObjects.indexPath"];
@@ -295,11 +291,12 @@ static CGFloat const _kNRGridViewDefaultHeaderWidth = 30.; // layout style = hor
 {
     NRGridViewCell *cell = nil;
     
-    for(NRGridViewCell* aCell in [self visibleCells])
-        if([[aCell __indexPath] isEqual:indexPath]){
-            cell = [aCell retain];
-            break;
-        }
+    if(indexPath!=nil)
+        for(NRGridViewCell* aCell in [self visibleCells])
+            if([[aCell __indexPath] isEqual:indexPath]){
+                cell = [aCell retain];
+                break;
+            }
     
     return [cell autorelease];
 }
@@ -311,6 +308,11 @@ static CGFloat const _kNRGridViewDefaultHeaderWidth = 30.; // layout style = hor
     [super setFrame:frame];
     [self __reloadContentSize];
     [self setNeedsLayout];
+}
+
+- (void)setSelectedCellIndexPath:(NSIndexPath *)selectedCellIndexPath
+{
+    [self selectCellAtIndexPath:selectedCellIndexPath animated:NO];
 }
 
 - (void)setLayoutStyle:(NRGridViewLayoutStyle)layoutStyle
@@ -434,6 +436,12 @@ static CGFloat const _kNRGridViewDefaultHeaderWidth = 30.; // layout style = hor
 
 #pragma mark - Visible Sections
 
+- (CGRect)rectForSection:(NSInteger)section
+{
+    NRGridViewSectionLayout *sectionLayout = [self __sectionLayoutAtIndex:section];
+    return [sectionLayout sectionFrame];
+}
+
 - (NSArray*)__sectionsInRect:(CGRect)rect
 {
     NSMutableArray* sectionsInRect = [[NSMutableArray alloc] init];
@@ -529,8 +537,14 @@ static CGFloat const _kNRGridViewDefaultHeaderWidth = 30.; // layout style = hor
 
 #pragma mark - Cells Stuff
 
-- (CGRect)__frameForCellAtIndexPath:(NSIndexPath*)indexPath 
-                   usingLayoutStyle:(NRGridViewLayoutStyle)layoutStyle
+- (CGRect)rectForItemAtIndexPath:(NSIndexPath*)indexPath
+{
+    return [self __rectForCellAtIndexPath:indexPath
+                         usingLayoutStyle:[self layoutStyle]];
+}
+
+- (CGRect)__rectForCellAtIndexPath:(NSIndexPath*)indexPath 
+                  usingLayoutStyle:(NRGridViewLayoutStyle)layoutStyle
 {
     CGRect cellFrame = CGRectZero;
     cellFrame.size = [self cellSize];
@@ -599,6 +613,158 @@ static CGFloat const _kNRGridViewDefaultHeaderWidth = 30.; // layout style = hor
         
     return [dequeuedCell autorelease];
 }
+
+#pragma mark - Scrolling
+
+- (void)scrollRectToSection:(NSInteger)section 
+                   animated:(BOOL)animated
+             scrollPosition:(NRGridViewScrollPosition)scrollPosition
+{
+    CGRect sectionRect = [self rectForSection:section];
+    CGRect sectionHeaderRect = [self rectForHeaderInSection:section];
+    CGPoint contentOffsetForSection = CGPointZero;
+    
+    if(scrollPosition == NRGridViewScrollPositionNone 
+       && CGRectContainsRect([self bounds], sectionRect))
+            return; // no scroll, as specified in NRGridViewScrollPositionNone's description.
+    
+    if([self layoutStyle] == NRGridViewLayoutStyleVertical)
+    {
+        if(scrollPosition == NRGridViewScrollPositionNone){
+            if(CGRectGetMaxY(sectionRect) > CGRectGetMaxY([self bounds]))
+                scrollPosition = NRGridViewScrollPositionAtBottom;
+            else if(CGRectGetMinY(sectionRect) < CGRectGetMinY([self bounds]))
+                scrollPosition = NRGridViewScrollPositionAtTop;
+        }
+        
+        
+        switch (scrollPosition) {
+            case NRGridViewScrollPositionAtTop:
+                contentOffsetForSection.y = CGRectGetMinY(sectionRect);
+                break;
+            case NRGridViewScrollPositionAtMiddle:
+                contentOffsetForSection.y = floor(CGRectGetMidY(sectionRect) - CGRectGetHeight([self bounds])/2.);
+                break;
+            case NRGridViewScrollPositionAtBottom:
+                contentOffsetForSection.y = CGRectGetMinY(sectionRect) - (CGRectGetHeight([self bounds]) - CGRectGetHeight(sectionHeaderRect));
+                break;
+            default:
+                break;
+        }
+        
+        
+        if(contentOffsetForSection.y<0)
+            contentOffsetForSection.y = 0;
+        else if(contentOffsetForSection.y> [self contentSize].height-CGRectGetHeight([self bounds]))
+            contentOffsetForSection.y = [self contentSize].height - CGRectGetHeight([self bounds]);
+        
+    }else if([self layoutStyle] == NRGridViewLayoutStyleHorizontal)
+    {
+        if(scrollPosition == NRGridViewScrollPositionNone){
+            if(CGRectGetMaxX(sectionRect) > CGRectGetMaxX([self bounds]))
+                scrollPosition = NRGridViewScrollPositionAtRight;
+            else if(CGRectGetMinX(sectionRect) < CGRectGetMinX([self bounds]))
+                scrollPosition = NRGridViewScrollPositionAtLeft;
+        }
+        
+        
+        switch (scrollPosition) {
+            case NRGridViewScrollPositionAtLeft:
+                contentOffsetForSection.x = CGRectGetMinX(sectionRect);
+                break;
+            case NRGridViewScrollPositionAtMiddle:
+                contentOffsetForSection.x = floor(CGRectGetMidX(sectionRect) - CGRectGetWidth([self bounds])/2.);
+                break;
+            case NRGridViewScrollPositionAtRight:
+                contentOffsetForSection.x = CGRectGetMinX(sectionRect) - (CGRectGetWidth([self bounds]) - CGRectGetWidth(sectionHeaderRect));
+                break;
+            default:
+                break;
+        }
+        
+        if(contentOffsetForSection.x<0)
+            contentOffsetForSection.x = 0;
+        else if(contentOffsetForSection.x > [self contentSize].width - CGRectGetWidth([self bounds]))
+            contentOffsetForSection.x = [self contentSize].width - CGRectGetWidth([self bounds]);
+    }
+      
+    [self setContentOffset:contentOffsetForSection animated:animated];
+}
+
+- (void)scrollRectToItemAtIndexPath:(NSIndexPath*)indexPath 
+                           animated:(BOOL)animated
+                     scrollPosition:(NRGridViewScrollPosition)scrollPosition
+{
+    CGRect itemRect = [self rectForItemAtIndexPath:indexPath];
+    CGPoint contentOffsetForItem = CGPointZero;
+    
+    if(scrollPosition == NRGridViewScrollPositionNone 
+       && CGRectContainsRect([self bounds], itemRect))
+        return; // no scroll, as specified in NRGridViewScrollPositionNone's description.
+    
+    if([self layoutStyle] == NRGridViewLayoutStyleVertical)
+    {
+        if(scrollPosition == NRGridViewScrollPositionNone){
+            if(CGRectGetMaxY(itemRect) > CGRectGetMaxY([self bounds]))
+                scrollPosition = NRGridViewScrollPositionAtBottom;
+            else if(CGRectGetMinY(itemRect) < CGRectGetMinY([self bounds]))
+                scrollPosition = NRGridViewScrollPositionAtTop;
+        }
+        
+        
+        switch (scrollPosition) {
+            case NRGridViewScrollPositionAtTop:
+                contentOffsetForItem.y = CGRectGetMinY(itemRect);
+                break;
+            case NRGridViewScrollPositionAtMiddle:
+                contentOffsetForItem.y = floor(CGRectGetMidY(itemRect) - CGRectGetHeight([self bounds])/2.);
+                break;
+            case NRGridViewScrollPositionAtBottom:
+                contentOffsetForItem.y = CGRectGetMinY(itemRect) - (CGRectGetHeight([self bounds]) - CGRectGetHeight(itemRect));
+                break;
+            default:
+                break;
+        }
+        
+        
+        if(contentOffsetForItem.y<0)
+            contentOffsetForItem.y = 0;
+        else if(contentOffsetForItem.y > [self contentSize].height - CGRectGetHeight([self bounds]))
+            contentOffsetForItem.y = [self contentSize].height - CGRectGetHeight([self bounds]);
+        
+    }else if([self layoutStyle] == NRGridViewLayoutStyleHorizontal)
+    {
+        if(scrollPosition == NRGridViewScrollPositionNone){
+            if(CGRectGetMaxX(itemRect) > CGRectGetMaxX([self bounds]))
+                scrollPosition = NRGridViewScrollPositionAtRight;
+            else if(CGRectGetMinX(itemRect) < CGRectGetMinX([self bounds]))
+                scrollPosition = NRGridViewScrollPositionAtLeft;
+        }
+        
+        
+        switch (scrollPosition) {
+            case NRGridViewScrollPositionAtLeft:
+                contentOffsetForItem.x = CGRectGetMinX(itemRect);
+                break;
+            case NRGridViewScrollPositionAtMiddle:
+                contentOffsetForItem.x = floor(CGRectGetMidX(itemRect) - CGRectGetWidth([self bounds])/2.);
+                break;
+            case NRGridViewScrollPositionAtRight:
+                contentOffsetForItem.x = CGRectGetMinX(itemRect) - (CGRectGetWidth([self bounds]) - CGRectGetWidth(itemRect));
+                break;
+            default:
+                break;
+        }
+        
+        if(contentOffsetForItem.x<0)
+            contentOffsetForItem.x = 0;
+        else if(contentOffsetForItem.x > [self contentSize].width - CGRectGetWidth([self bounds]))
+            contentOffsetForItem.x = [self contentSize].width - CGRectGetWidth([self bounds]);
+    }
+    
+    [self setContentOffset:contentOffsetForItem animated:animated];
+}
+
 
 #pragma mark - Reloading Content
 
@@ -688,8 +854,7 @@ static CGFloat const _kNRGridViewDefaultHeaderWidth = 30.; // layout style = hor
     [_reusableCellsSet release], _reusableCellsSet = nil;
     _reusableCellsSet = [[NSMutableSet alloc] init];
 
-    
-    [_selectedIndexPath release], _selectedIndexPath=nil;
+    [self setSelectedCellIndexPath:nil];
     
     [self setNeedsLayout];
 }
@@ -788,10 +953,10 @@ static CGFloat const _kNRGridViewDefaultHeaderWidth = 30.; // layout style = hor
                  NRGridViewCell *cell = [[self dataSource] gridView:self 
                                              cellForItemAtIndexPath:cellIndexPath];
                  [cell __setIndexPath:cellIndexPath];
-                 [cell setFrame:[self __frameForCellAtIndexPath:cellIndexPath 
-                                               usingLayoutStyle:layoutStyle]];                         
-                 if(_selectedIndexPath)
-                     [cell setSelected:[cellIndexPath isEqual:_selectedIndexPath]];
+                 [cell setFrame:[self __rectForCellAtIndexPath:cellIndexPath 
+                                              usingLayoutStyle:layoutStyle]];                         
+                 if([self selectedCellIndexPath])
+                     [cell setSelected:[cellIndexPath isEqual:[self selectedCellIndexPath]]];
                  
                  if(informDelegateBeforeDisplayingCell)
                      [[self delegate] gridView:self 
@@ -821,8 +986,8 @@ static CGFloat const _kNRGridViewDefaultHeaderWidth = 30.; // layout style = hor
     NSSet *visibleCellsSetCopy = [_visibleCellsSet copy];
     for(NRGridViewCell* visibleCell in visibleCellsSetCopy)
     {
-        [visibleCell setFrame:[self __frameForCellAtIndexPath:[visibleCell __indexPath] 
-                                             usingLayoutStyle:[self layoutStyle]]];
+        [visibleCell setFrame:[self __rectForCellAtIndexPath:[visibleCell __indexPath] 
+                                            usingLayoutStyle:[self layoutStyle]]];
         
         if(CGRectIntersectsRect([visibleCell frame], [self bounds]) == NO)
         {
@@ -842,21 +1007,53 @@ static CGFloat const _kNRGridViewDefaultHeaderWidth = 30.; // layout style = hor
 }
 
 
-#pragma mark - Handling Highlight/Selection
+#pragma mark - Handling Highlight/(De)Selection
 
-- (void)deselectedCellAtIndexPath:(NSIndexPath*)indexPath animated:(BOOL)animated
+
+- (void)selectCellAtIndexPath:(NSIndexPath*)indexPath 
+                   autoScroll:(BOOL)autoScroll 
+               scrollPosition:(NRGridViewScrollPosition)scrollPosition
+                     animated:(BOOL)animated
+{
+    if(_selectedCellIndexPath != indexPath)
+    {
+        [self deselectCellAtIndexPath:_selectedCellIndexPath 
+                             animated:animated];
+        
+        // no release needed because -deselectCellAtIndexPath:_selectedCellIndexPath does it for us.
+        _selectedCellIndexPath = [indexPath retain];
+        
+        [[self cellAtIndexPath:indexPath] setSelected:YES animated:animated];
+    }
+    
+    if(autoScroll && indexPath)
+    {
+        [self scrollRectToItemAtIndexPath:indexPath animated:animated scrollPosition:scrollPosition];
+    }
+}
+
+- (void)selectCellAtIndexPath:(NSIndexPath *)indexPath animated:(BOOL)animated
+{
+    [self selectCellAtIndexPath:indexPath autoScroll:NO scrollPosition:NRGridViewScrollPositionNone animated:animated];
+}
+
+
+- (void)deselectCellAtIndexPath:(NSIndexPath*)indexPath animated:(BOOL)animated
 {
     [[self cellAtIndexPath:indexPath] setSelected:NO animated:animated];
-    [[self cellAtIndexPath:indexPath] setHighlighted:NO animated:animated];
-    [_selectedIndexPath release], _selectedIndexPath=nil;
 
+    if([_selectedCellIndexPath isEqual:indexPath])
+    {
+        [_selectedCellIndexPath release];
+        _selectedCellIndexPath = nil;
+    }
 }
 
 - (void)__handleTapGestureRecognition:(UIGestureRecognizer*)tapGestureRecognizer
 {
     if(tapGestureRecognizer == _tapGestureRecognizer)
     {
-        NRGridViewCell *selectedCell = [self cellAtIndexPath:_selectedIndexPath];
+        NRGridViewCell *selectedCell = [self cellAtIndexPath:[self selectedCellIndexPath]];
         [selectedCell setSelected:NO animated:YES];
         
         CGPoint touchLocation = [tapGestureRecognizer locationInView:self];
@@ -882,10 +1079,7 @@ static CGFloat const _kNRGridViewDefaultHeaderWidth = 30.; // layout style = hor
                 if([[self delegate] respondsToSelector:@selector(gridView:willSelectCellAtIndexPath:)])
                     [[self delegate] gridView:self willSelectCellAtIndexPath:[aCell __indexPath]];
 
-                [aCell setSelected:YES animated:YES];
-            
-                [_selectedIndexPath release], _selectedIndexPath = nil;
-                _selectedIndexPath = [[aCell __indexPath] retain];
+                [self selectCellAtIndexPath:[aCell __indexPath] animated:YES];
                 
                 if([[self delegate] respondsToSelector:@selector(gridView:didSelectCellAtIndexPath:)])
                     [[self delegate] gridView:self didSelectCellAtIndexPath:[aCell __indexPath]];
@@ -942,7 +1136,7 @@ static CGFloat const _kNRGridViewDefaultHeaderWidth = 30.; // layout style = hor
     [_tapGestureRecognizer release];
     [_reusableCellsSet release];
     [_visibleCellsSet release];
-    [_selectedIndexPath release];
+    [_selectedCellIndexPath release];
     [super dealloc];
 }
 
