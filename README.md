@@ -21,10 +21,9 @@ If you got any suggestions, or if you need more UITableView-like methods, do not
 enum{
     NRGridViewScrollPositionNone,   // Please refer to UITableViewScrollPositionNone's description.
     NRGridViewScrollPositionAtTop,
-    NRGridViewScrollPositionAtLeft  = NRGridViewScrollPositionAtTop, // for horizontal layout convention
-    NRGridViewScrollPositionAtMiddle,
+    NRGridViewScrollPositionAtLeft  = NRGridViewScrollPositionAtTop,    	NRGridViewScrollPositionAtMiddle,
     NRGridViewScrollPositionAtBottom,
-    NRGridViewScrollPositionAtRight = NRGridViewScrollPositionAtBottom // for horizontal layout convention
+    NRGridViewScrollPositionAtRight = NRGridViewScrollPositionAtBottom 
 };
 typedef NSInteger NRGridViewScrollPosition;
 
