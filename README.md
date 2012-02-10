@@ -17,6 +17,17 @@ If you got any suggestions, or if you need more UITableView-like methods, do not
 
 ##Latest Changelog
 ####Added
+
+enum{
+    NRGridViewScrollPositionNone,   // Please refer to UITableViewScrollPositionNone's description.
+    NRGridViewScrollPositionAtTop,
+    NRGridViewScrollPositionAtLeft  = NRGridViewScrollPositionAtTop, // for horizontal layout convention
+    NRGridViewScrollPositionAtMiddle,
+    NRGridViewScrollPositionAtBottom,
+    NRGridViewScrollPositionAtRight = NRGridViewScrollPositionAtBottom // for horizontal layout convention
+};
+typedef NSInteger NRGridViewScrollPosition;
+
 - (void)selectCellAtIndexPath:(NSIndexPath*)indexPath 
                      animated:(BOOL)animated;
 - (void)selectCellAtIndexPath:(NSIndexPath*)indexPath 
