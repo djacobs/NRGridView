@@ -15,6 +15,28 @@ It also has a 'layoutStyle'. It means you can use it as a vertical gridView, or 
 
 If you got any suggestions, or if you need more UITableView-like methods, do not hesitate to email me at l.desroziers@novediagroup.com
 
+##Latest Changelog
+####Added
+- (void)selectCellAtIndexPath:(NSIndexPath*)indexPath 
+                     animated:(BOOL)animated;
+- (void)selectCellAtIndexPath:(NSIndexPath*)indexPath 
+                   autoScroll:(BOOL)autoScroll
+               scrollPosition:(NRGridViewScrollPosition)scrollPosition
+                     animated:(BOOL)animated;
+
+- (CGRect)rectForHeaderInSection:(NSInteger)section;
+- (CGRect)rectForSection:(NSInteger)section;
+- (CGRect)rectForItemAtIndexPath:(NSIndexPath*)indexPath;
+
+- (void)scrollRectToSection:(NSInteger)section 
+                   animated:(BOOL)animated
+             scrollPosition:(NRGridViewScrollPosition)scrollPosition;
+
+- (void)scrollRectToItemAtIndexPath:(NSIndexPath*)indexPath 
+                           animated:(BOOL)animated
+                     scrollPosition:(NRGridViewScrollPosition)scrollPosition;
+
+
 ##Comments
 
 This component has been developed for Novedia Regions, a french company which develops apps for mobile devices.
