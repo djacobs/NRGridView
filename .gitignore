@@ -1,0 +1,6 @@
+# Xcode useless directories
+build/
+*.xuserdatad
+
+# OSX files
+.DS_Store
