@@ -47,11 +47,18 @@
 
 - (NSString*)gridView:(NRGridView*)gridView titleForHeaderInSection:(NSInteger)section;
 - (UIView*)gridView:(NRGridView*)gridView viewForHeaderInSection:(NSInteger)section;
-
 /** If implemented, this method is called if the layout style of the grid view is vertical */
 - (CGFloat)gridView:(NRGridView*)gridView heightForHeaderInSection:(NSInteger)section;
-
 /** If implemented, this method is called if the layout style of the grid view is horizontal */
 - (CGFloat)gridView:(NRGridView*)gridView widthForHeaderInSection:(NSInteger)section;
+
+
+- (NSString*)gridView:(NRGridView*)gridView titleForFooterInSection:(NSInteger)section;
+- (UIView*)gridView:(NRGridView*)gridView viewForFooterInSection:(NSInteger)section;
+/** If implemented, this method is called if the layout style of the grid view is vertical */
+- (CGFloat)gridView:(NRGridView*)gridView heightForFooterInSection:(NSInteger)section;
+/** If implemented, this method is called if the layout style of the grid view is horizontal */
+- (CGFloat)gridView:(NRGridView*)gridView widthForFooterInSection:(NSInteger)section;
+
 
 @end

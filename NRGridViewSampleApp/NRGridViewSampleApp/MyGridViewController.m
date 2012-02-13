@@ -23,10 +23,17 @@ static CGFloat const _kNRGridViewSampleCrazyScrollEnabled = NO; // For the lulz.
     NSInteger randomItemIndex = arc4random() % [[[self gridView] dataSource] gridView:[self gridView] 
                                                                numberOfItemsInSection:randomSection];
     
+    
     [[self gridView] selectCellAtIndexPath:[NSIndexPath indexPathForItemIndex:randomItemIndex inSection:randomSection] 
                                 autoScroll:YES 
                             scrollPosition:NRGridViewScrollPositionAtMiddle
                                   animated:YES];
+    
+    /*
+    [[self gridView] scrollRectToSection:randomSection 
+                                animated:YES 
+                          scrollPosition:NRGridViewScrollPositionAtBottom];
+    */
     
     [self performSelector:@selector(__beginGeneratingCrazyScrolls) 
                withObject:nil 
@@ -104,6 +111,13 @@ static CGFloat const _kNRGridViewSampleCrazyScrollEnabled = NO; // For the lulz.
 {
     return [NSString stringWithFormat:@"Section %i", section];
 }
+
+- (NSString*)gridView:(NRGridView *)gridView titleForFooterInSection:(NSInteger)section
+{
+   if(section%2)
+       return [NSString stringWithFormat:@"Footer %i", section];
+    return nil;
+}  
 
 
 - (NRGridViewCell*)gridView:(NRGridView *)gridView cellForItemAtIndexPath:(NSIndexPath *)indexPath

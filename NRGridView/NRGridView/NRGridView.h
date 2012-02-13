@@ -46,21 +46,19 @@
 @property (readonly) NSInteger itemIndex;
 @end
 
-enum{
+typedef enum{
     NRGridViewLayoutStyleVertical,
     NRGridViewLayoutStyleHorizontal
-};
-typedef NSInteger NRGridViewLayoutStyle;
+} NRGridViewLayoutStyle;
 
-enum{
+typedef enum{
     NRGridViewScrollPositionNone,   // Please refer to UITableViewScrollPositionNone's description.
     NRGridViewScrollPositionAtTop,
     NRGridViewScrollPositionAtLeft  = NRGridViewScrollPositionAtTop, // for horizontal layout convention
     NRGridViewScrollPositionAtMiddle,
     NRGridViewScrollPositionAtBottom,
     NRGridViewScrollPositionAtRight = NRGridViewScrollPositionAtBottom // for horizontal layout convention
-};
-typedef NSInteger NRGridViewScrollPosition;
+} NRGridViewScrollPosition;
 
 
 static CGSize const kNRGridViewDefaultCellSize = {50, 70};
@@ -109,7 +107,10 @@ static CGSize const kNRGridViewDefaultCellSize = {50, 70};
 - (CGRect)rectForHeaderInSection:(NSInteger)section;
 - (CGRect)rectForSection:(NSInteger)section;
 - (CGRect)rectForItemAtIndexPath:(NSIndexPath*)indexPath;
+- (CGRect)rectForFooterInSection:(NSInteger)section;
 
+/** Scrolls to the given 'section' in the grid view. The scrollPosition determines which part of the section will be visible.
+ * E.g.: using NRGridViewScrollPositionAtBottom/Right should display the end of the section. */
 - (void)scrollRectToSection:(NSInteger)section 
                    animated:(BOOL)animated
              scrollPosition:(NRGridViewScrollPosition)scrollPosition;

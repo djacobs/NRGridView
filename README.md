@@ -18,33 +18,11 @@ If you got any suggestions, or if you need more UITableView-like methods, do not
 ##Latest Changelog
 ####Added
 
-enum{
-    NRGridViewScrollPositionNone,   // Please refer to UITableViewScrollPositionNone's description.
-    NRGridViewScrollPositionAtTop,
-    NRGridViewScrollPositionAtLeft  = NRGridViewScrollPositionAtTop,    	NRGridViewScrollPositionAtMiddle,
-    NRGridViewScrollPositionAtBottom,
-    NRGridViewScrollPositionAtRight = NRGridViewScrollPositionAtBottom 
-};
-typedef NSInteger NRGridViewScrollPosition;
+- 1 Footer per section support.
 
-- (void)selectCellAtIndexPath:(NSIndexPath*)indexPath 
-                     animated:(BOOL)animated;
-- (void)selectCellAtIndexPath:(NSIndexPath*)indexPath 
-                   autoScroll:(BOOL)autoScroll
-               scrollPosition:(NRGridViewScrollPosition)scrollPosition
-                     animated:(BOOL)animated;
+####Fixed
+- scrollRectToSection:animated:scrollPosition: now scrolls to the end of the section if scrollPosition is NRGridViewScrollPositionAtRight/NRGridViewScrollPositionAtBottom
 
-- (CGRect)rectForHeaderInSection:(NSInteger)section;
-- (CGRect)rectForSection:(NSInteger)section;
-- (CGRect)rectForItemAtIndexPath:(NSIndexPath*)indexPath;
-
-- (void)scrollRectToSection:(NSInteger)section 
-                   animated:(BOOL)animated
-             scrollPosition:(NRGridViewScrollPosition)scrollPosition;
-
-- (void)scrollRectToItemAtIndexPath:(NSIndexPath*)indexPath 
-                           animated:(BOOL)animated
-                     scrollPosition:(NRGridViewScrollPosition)scrollPosition;
 
 
 ##Comments
