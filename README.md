@@ -25,6 +25,7 @@ If you got any suggestions, or if you need more UITableView-like methods, do not
 
 
 
+
 ##Comments
 
 This component has been developed for Novedia Regions, a french company which develops apps for mobile devices.
