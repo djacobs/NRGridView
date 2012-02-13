@@ -13,6 +13,9 @@ NRGridView is a grid-view UI component (built as a static library) which has bee
 How it works? Almost like UITableView works. You set a dataSource, and a delegate.. and you implement all @required methods.
 It also has a 'layoutStyle'. It means you can use it as a vertical gridView, or horizontal grid-view!
 
+![image](https://github.com/ldesroziers/NRGridView/blob/master/NRGridViewSampleApp/Screenshots/Vertical-Landscape.png?raw=true)
+![image](https://github.com/ldesroziers/NRGridView/blob/master/NRGridViewSampleApp/Screenshots/Horizontal-Landscape.png?raw=true)
+
 If you got any suggestions, or if you need more UITableView-like methods, do not hesitate to email me at l.desroziers@novediagroup.com
 
 ##Latest Changelog
