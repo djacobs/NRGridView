@@ -332,7 +332,9 @@ static CGSize const _kNRGridViewCellLayoutSpacing = {5,5};
     // Layout content...
     CGRect imageViewFrame = CGRectZero;
     if([[self imageView] image] != nil){
-        imageViewFrame.size.width = [[[self imageView] image] size].width;
+        imageViewFrame.size.width = ([[[self imageView] image] size].width > CGRectGetWidth(contentViewBounds) 
+                                     ? CGRectGetWidth(contentViewBounds) 
+                                     : [[[self imageView] image] size].width);
         imageViewFrame.size.height = CGRectGetHeight(contentViewBounds);
     }
     
